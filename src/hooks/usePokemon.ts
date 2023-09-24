@@ -1,14 +1,21 @@
 import { CanceledError } from "axios";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import apiClient from "../services/api/getBase";
 
-interface FetchResponse<T> {
-  count: number;
-  results: T[];
+export interface Pokemon {
+  name: string;
+  url: string;
 }
 
-const useData = <T>(endoint: string) => {
-  const [data, setData] = useState<T[]>([]);
+interface FetchPokemonResponse {
+  count: number;
+  results: Pokemon[];
+  previous: string;
+  next: string;
+}
+
+const usePokemon = () => {
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
 
@@ -16,9 +23,9 @@ const useData = <T>(endoint: string) => {
     const controller = new AbortController();
     setLoading(true);
     apiClient
-      .get<FetchResponse<T>>(endoint, { signal: controller.signal })
+      .get<FetchPokemonResponse>("pokemon/", { signal: controller.signal })
       .then((res) => {
-        setData(res.data.results);
+        setPokemons(res.data.results);
         setLoading(false);
       })
       .catch((err) => {
@@ -29,7 +36,6 @@ const useData = <T>(endoint: string) => {
 
     return () => controller.abort();
   }, []);
-  return { data, error, isLoading };
+  return { pokemons, error, isLoading };
 };
-
-export default useData;
+export default usePokemon;
