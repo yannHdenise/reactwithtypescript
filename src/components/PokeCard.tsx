@@ -1,10 +1,18 @@
 import { Pokemon } from "../hooks/usePokemon";
-import { Card, CardBody, VStack, Heading, Image } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  VStack,
+  Heading,
+  Image,
+  Spinner,
+} from "@chakra-ui/react";
 import pokeImage from "../assets/pokeball.jpg";
 import PokeType from "./PokeType";
 import usePokemonType from "../hooks/usePokemonType";
 import usePokemonCharacteristics from "../hooks/usePokemonCharacteristics.";
 import PokeCharacteristics from "./PokeCharacteristics";
+import { error } from "console";
 
 interface Props {
   pokemon: Pokemon;

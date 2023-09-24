@@ -1,7 +1,6 @@
-import { Grid, GridItem, Show } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import PokeGrid from "./components/PokeGrid";
-import GenreList from "./components/GenreList";
 import { useState } from "react";
 function App() {
   const [selectedGenre, setSelectedGenre] = useState(null);
