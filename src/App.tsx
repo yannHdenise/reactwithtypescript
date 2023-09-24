@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { Grid, GridItem, Show } from "@chakra-ui/react";
+import NavBar from "./components/NavBar";
+import GameGrid from "./components/GameGrid";
+import GenreList from "./components/GenreList";
+import { useState } from "react";
 function App() {
+  const [selectedGenre, setSelectedGenre] = useState(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid
+      templateAreas={{
+        base: `"nav" "main"`,
+        md: `"nav nav" "aside main"`,
+      }}
+      templateColumns={{ base: "1fr", lg: "200px, 1fr" }}
+    >
+      <GridItem area="nav">
+        <NavBar />
+      </GridItem>
+      <Show above="lg">
+        <GridItem area="aside">
+          <GenreList />
+        </GridItem>
+      </Show>
+      <GridItem area="main">
+        <GameGrid></GameGrid>
+      </GridItem>
+    </Grid>
   );
 }
 
