@@ -35,8 +35,8 @@ const GameCard = ({ pokemon }: Props) => {
           <PokeType types={pokemonTypes} />
         </VStack>
       </CardBody>
-      <CardFooter>
-        <VStack position="relative">
+      <CardFooter alignSelf="center">
+        <VStack>
           <PokeCharacteristics detail={pokemonDetail} />
         </VStack>
       </CardFooter>
