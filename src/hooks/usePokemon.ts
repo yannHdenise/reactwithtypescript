@@ -18,7 +18,6 @@ export interface FetchPokemonResponse {
 }
 
 const usePokemon = (endoint = "") => {
-  console.log("usePokemon called: ", endoint);
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [paginationLinks, setPaginationLinks] = useState<paginationLinks>({
     next: "",
@@ -27,6 +26,11 @@ const usePokemon = (endoint = "") => {
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [url, setUrl] = useState(endoint);
+  const scrollToTop = () =>
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // for smoothly scrolling
+    });
 
   useEffect(() => {
     const controller = new AbortController();
@@ -41,6 +45,7 @@ const usePokemon = (endoint = "") => {
             previous: res.data.previous,
           });
           setLoading(false);
+          scrollToTop();
         })
         .catch((err) => {
           if (err instanceof CanceledError) return;
@@ -57,6 +62,7 @@ const usePokemon = (endoint = "") => {
             previous: res.data.previous,
           });
           setLoading(false);
+          scrollToTop();
         })
         .catch((err) => {
           if (err instanceof CanceledError) return;
