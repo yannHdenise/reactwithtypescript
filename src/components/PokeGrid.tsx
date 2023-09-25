@@ -61,7 +61,7 @@ const PokeGrid = () => {
       </AbsoluteCenter>
       {error && <Text>{error}</Text>}
       <SimpleGrid
-        columns={{ sm: 1, md: 2, lg: 4, xl: 5 }}
+        columns={{ sm: 1, md: 2, lg: 4, xl: 4 }}
         spacing={2}
         pl={5}
         pt={20}
