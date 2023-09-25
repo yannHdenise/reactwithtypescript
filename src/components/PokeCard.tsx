@@ -7,6 +7,7 @@ import {
   Image,
   Spinner,
   HStack,
+  CardFooter,
 } from "@chakra-ui/react";
 import pokeImage from "../assets/pokeball.jpg";
 import PokeType from "./PokeType";
@@ -32,9 +33,13 @@ const GameCard = ({ pokemon }: Props) => {
         <Heading fontSize="2xl">{pokemon.name}</Heading>
         <VStack position="relative" padding={0}>
           <PokeType types={pokemonTypes} />
-          <PokeCharacteristics detail={pokemonDetail} />
         </VStack>
       </CardBody>
+      <CardFooter>
+        <VStack position="relative">
+          <PokeCharacteristics detail={pokemonDetail} />
+        </VStack>
+      </CardFooter>
     </Card>
   );
 };

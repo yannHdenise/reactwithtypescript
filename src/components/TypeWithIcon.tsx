@@ -1,5 +1,3 @@
-import React from "react";
-import { PokemonType } from "../hooks/usePokemonType";
 import { CgPokemon } from "react-icons/cg";
 import { BsFire, BsBugFill, BsMoonStarsFill } from "react-icons/bs";
 import {

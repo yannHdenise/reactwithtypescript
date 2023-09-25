@@ -1,7 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import PokeGrid from "./components/PokeGrid";
-import { useState } from "react";
+
 function App() {
   return (
     <Grid

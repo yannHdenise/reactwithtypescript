@@ -1,4 +1,3 @@
-import React from "react";
 import { PokemonDetail } from "../hooks/usePokemonCharacteristics.";
 import { Text } from "@chakra-ui/react";
 
