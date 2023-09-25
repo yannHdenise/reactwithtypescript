@@ -3,7 +3,6 @@ import NavBar from "./components/NavBar";
 import PokeGrid from "./components/PokeGrid";
 import { useState } from "react";
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState(null);
   return (
     <Grid
       templateAreas={{
